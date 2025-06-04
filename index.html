@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>To Do List</h1>
+    </header>
+    <main>
+      <input
+        type="text"
+        id="campo"
+        autocomplete="off"
+        placeholder="Digite sua tarefa"
+      />
+      <button id="btn-add-tarefa" aria-label="Adicionar tarefa">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="white" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z" />
+        </svg>
+      </button>
+
+      <div id="tarefas">
+        <ul id="ul"></ul>
+      </div>
+    </main>
+  </body>
+  <script src="./assets/index.js"></script>
+</html>
