@@ -23,34 +23,43 @@ function tarefaa() {
     return;
   }
 
-  const botao = document.createElement("button");
+  elementoscriados(ul);
+}
+
+//elementos criados
+function elementoscriados(u) {
   const p = document.createElement("p");
   const div = document.createElement("div");
   const tabelaLi = document.createElement("li");
 
-  ul.style.listStyleType = "decimal";
+  u.style.listStyleType = "decimal";
   div.style.display = "flex";
   div.style.alignItems = "center";
   div.style.gap = "10px";
+
+  p.textContent = tarefa.value;
+
+  tabelaLi.appendChild(div);
+  div.appendChild(p);
+  div.appendChild(botaodeletar(tabelaLi));
+  u.appendChild(tabelaLi);
+
+  tarefasadd.appendChild(u);
+  console.log(u.children.length);
+}
+
+function botaodeletar(tl) {
+  const botao = document.createElement("button");
 
   botao.innerHTML = `
   <svg xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 24 24" fill="white">
     <path d="M3 6h18v2H3V6zm2 3h14v13H5V9zm5 2v9h2v-9H10zm4 0v9h2v-9h-2z"/>
   </svg>
 `;
-
   botao.id = "btndeletar";
   botao.addEventListener("click", () => {
-    tabelaLi.remove();
+    tl.remove();
   });
 
-  p.textContent = tarefa.value;
-
-  tabelaLi.appendChild(div);
-  div.appendChild(p);
-  div.appendChild(botao);
-  ul.appendChild(tabelaLi);
-
-  tarefasadd.appendChild(ul);
-  console.log(ul.children.length);
+  return botao;
 }
