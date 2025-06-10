@@ -16,6 +16,13 @@ botaoAddTarefa.addEventListener("click", () => {
   }
 });
 
+tarefa.addEventListener("keydown", (r) => {
+  if (r.key === 'Enter') {
+    botaoAddTarefa.click(); // simula o clique no botão
+  }
+});
+
+
 function tarefaa() {
   const ul = document.querySelector("#tarefas ul");
 
