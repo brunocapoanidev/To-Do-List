@@ -1,6 +1,7 @@
 const botaoAddTarefa = document.querySelector("#btn-add-tarefa");
 const tarefasadd = document.getElementById("tarefas");
 const tarefa = document.getElementById("campo");
+const lista = [];
 
 botaoAddTarefa.addEventListener("click", () => {
   if (tarefa.value == "") {
@@ -22,7 +23,6 @@ function tarefaa() {
     alert("acesso cheio");
     return;
   }
-
   elementoscriados(ul);
 }
 
@@ -36,14 +36,19 @@ function elementoscriados(u) {
   div.style.display = "flex";
   div.style.alignItems = "center";
   div.style.gap = "10px";
+  div.classList.add("caixa-tarefa");
 
   p.textContent = tarefa.value;
 
   tabelaLi.appendChild(div);
   div.appendChild(p);
   div.appendChild(botaodeletar(tabelaLi));
+
+  lista.push(p.textContent);
+  localStorage.setItem("Tarefas", JSON.stringify(lista));
   u.appendChild(tabelaLi);
 
+  console.log(lista);
   tarefasadd.appendChild(u);
   console.log(u.children.length);
 }
@@ -52,10 +57,11 @@ function botaodeletar(tl) {
   const botao = document.createElement("button");
 
   botao.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 24 24" fill="white">
-    <path d="M3 6h18v2H3V6zm2 3h14v13H5V9zm5 2v9h2v-9H10zm4 0v9h2v-9h-2z"/>
-  </svg>
-`;
+    <svg xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 24 24" fill="white">
+      <path d="M3 6h18v2H3V6zm2 3h14v13H5V9zm5 2v9h2v-9H10zm4 0v9h2v-9h-2z"/>
+    </svg>
+  `;
+
   botao.id = "btndeletar";
   botao.addEventListener("click", () => {
     tl.remove();
