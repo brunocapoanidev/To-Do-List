@@ -76,3 +76,19 @@ function botaodeletar(tl) {
 
   return botao;
 }
+ 
+const enviar = document.getElementById('enviar').addEventListener('click', () => {
+  fetch('/ver', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/html'
+    },
+    body: lista
+  })
+  .then(resposta => {
+    console.log('Resposta do servidor:', resposta);
+  })
+  .catch(erro => {
+    console.error('Erro ao enviar dados:', erro);
+  });
+});
