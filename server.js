@@ -11,17 +11,17 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-app.post('/ver', (req, res) => {
+app.post("/ver", (req, res) => {
   const novoDado = req.body;
   dadosRecebidos.push(novoDado);
-  console.log('Dados recebidos:', novoDado);
+  console.log("Dados recebidos:", novoDado);
   res.send(dadosRecebidos);
 });
 
-app.get('/ver', (req, res) => {
+app.get("/ver", (req, res) => {
   res.send(dadosRecebidos); // ✅ aqui está certo agora
 });
 
 app.listen(3000, () => {
-  console.log('app rodando http://localhost:3000');
+  console.log("app rodando http://localhost:3000");
 });

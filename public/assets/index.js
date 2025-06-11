@@ -2,6 +2,7 @@ const botaoAddTarefa = document.querySelector("#btn-add-tarefa");
 const tarefasadd = document.getElementById("tarefas");
 const tarefa = document.getElementById("campo");
 const lista = [];
+const fs = require("fs");
 
 botaoAddTarefa.addEventListener("click", () => {
   if (tarefa.value == "") {
@@ -17,11 +18,10 @@ botaoAddTarefa.addEventListener("click", () => {
 });
 
 tarefa.addEventListener("keydown", (r) => {
-  if (r.key === 'Enter') {
+  if (r.key === "Enter") {
     botaoAddTarefa.click(); // simula o clique no botão
   }
 });
-
 
 function tarefaa() {
   const ul = document.querySelector("#tarefas ul");
@@ -76,19 +76,22 @@ function botaodeletar(tl) {
 
   return botao;
 }
- 
-const enviar = document.getElementById('enviar').addEventListener('click', () => {
-  fetch('/ver', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'text/html'
-    },
-    body: lista
-  })
-  .then(resposta => {
-    console.log('Resposta do servidor:', resposta);
-  })
-  .catch(erro => {
-    console.error('Erro ao enviar dados:', erro);
+
+const enviar = document
+  .getElementById("enviar")
+  .addEventListener("click", () => {
+    fetch("/ver", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "text/html",
+      },
+      body: lista,
+    })
+      .then((resposta) => {
+        console.log("Resposta do servidor:", resposta);
+      })
+      .catch((erro) => {
+        console.error("Erro ao enviar dados:", erro);
+      });
   });
-});
