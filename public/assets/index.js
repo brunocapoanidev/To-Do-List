@@ -2,7 +2,6 @@ const botaoAddTarefa = document.querySelector("#btn-add-tarefa");
 const tarefasadd = document.getElementById("tarefas");
 const tarefa = document.getElementById("campo");
 const lista = [];
-const fs = require("fs");
 
 botaoAddTarefa.addEventListener("click", () => {
   if (tarefa.value == "") {
@@ -77,21 +76,19 @@ function botaodeletar(tl) {
   return botao;
 }
 
-const enviar = document
-  .getElementById("enviar")
-  .addEventListener("click", () => {
-    fetch("/ver", {
-      method: "POST",
-
-      headers: {
-        "Content-Type": "text/html",
-      },
-      body: lista,
+document.getElementById("enviar").addEventListener("click", () => {
+  fetch("/ver", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(lista),
+  })
+    .then((resposta) => resposta.text())
+    .then((dados) => {
+      console.log("Resposta do servidor:", dados);
     })
-      .then((resposta) => {
-        console.log("Resposta do servidor:", resposta);
-      })
-      .catch((erro) => {
-        console.error("Erro ao enviar dados:", erro);
-      });
-  });
+    .catch((erro) => {
+      console.error("Erro ao enviar dados:", erro);
+    });
+});

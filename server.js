@@ -19,7 +19,7 @@ app.post("/ver", (req, res) => {
 });
 
 app.get("/ver", (req, res) => {
-  res.send(dadosRecebidos); // ✅ aqui está certo agora
+  res.send(dadosRecebidos);
 });
 
 app.listen(3000, () => {
