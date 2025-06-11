@@ -138,5 +138,36 @@ main {
   cursor: pointer;
 }
 .caixa-tarefa {
-  margin: auto; /* Centraliza horizontalmente */
+  margin: auto;
+}
+
+#enviar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  background-color: #0858c0;
+
+  border: none;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-left: 485px;
+  margin-top: -61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#enviar:hover {
+  background-color: #175274;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+}
+
+#enviar:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }

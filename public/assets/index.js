@@ -7,10 +7,6 @@ botaoAddTarefa.addEventListener("click", () => {
   if (tarefa.value == "") {
     alert("Por favor, digite uma tarefa antes de adicionar.");
   } else {
-    if (tarefa.value.length > 15) {
-      alert("A tarefa deve ter no máximo 15 caracteres.");
-      return;
-    }
     tarefaa();
     tarefa.value = "";
   }
@@ -84,9 +80,9 @@ document.getElementById("enviar").addEventListener("click", () => {
     },
     body: JSON.stringify(lista),
   })
-    .then((resposta) => resposta.text())
-    .then((dados) => {
-      console.log("Resposta do servidor:", dados);
+    .then((res) => res.text())
+    .then(() => {
+      window.location.href = "/tarefas";
     })
     .catch((erro) => {
       console.error("Erro ao enviar dados:", erro);
